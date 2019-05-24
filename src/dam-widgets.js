@@ -61,7 +61,7 @@ DAM.makePanel = function(config) {
     {
       onclick: function(e) {
         isOpen = !isOpen;
-        button.innerHTML = getLabel();
+        button.textContent = getLabel();
         innerContainer.style.display = isOpen ? "block" : "none";
       }
     }

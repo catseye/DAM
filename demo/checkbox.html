@@ -20,7 +20,7 @@
   var great = false;
   var statusBar = span();
   function updateStatus() {
-    statusBar.innerHTML = (understood ? "understood " : "") + (great ? "great " : "");
+    statusBar.textContent = (understood ? "understood " : "") + (great ? "great " : "");
   }
   var d = div(
     div(

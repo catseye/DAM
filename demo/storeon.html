@@ -33,7 +33,7 @@ like DAM, written in ES5 Javascript -- no transpiling necessary), have you consi
   var div=DAM.maker('div'), span=DAM.maker('span'), button=DAM.maker('button');
   var statusBar = span();
   function updateStatusBar(state) {
-    statusBar.innerHTML = "Count is " + state.count + ".";
+    statusBar.textContent = "Count is " + state.count + ".";
   }
   store.on('@changed', updateStatusBar);
   updateStatusBar(store.get());
