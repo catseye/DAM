@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>DAM + Storeon demo</title>
+</head>
+<body>
+
+<h1>DAM + Storeon demo</h1>
+
+<p>DAM doesn't come with any state management capabilities, but if you're looking
+for a state management library that's as obscenely small as DAM (and,
+like DAM, written in ES5 Javascript -- no transpiling necessary), have you considered
+<a href="https://evilmartians.com/chronicles/storeon-redux-in-173-bytes">Storeon</a>?</p>
+
+<div id="installation"></div>
+
+<script src="../src/dam.js"></script>
+<script src="../src/dam-widgets.js"></script>
+
+<script>var module = {};</script>
+<script src="https://unpkg.com/storeon@0.8.2/index.js"></script>
+<script>var createStore = module.exports;</script>
+
+<script>
+  function initCounter(store) {
+    store.on('@init', function() { return {count: 0}; });
+    store.on('inc', function(state) { return {count: state.count + 1}; });
+    store.on('dec', function(state) { return {count: state.count - 1}; });
+  }
+
+  var store = createStore([initCounter]);
+
+  var div=DAM.maker('div'), span=DAM.maker('span'), button=DAM.maker('button');
+  var statusBar = span();
+  function updateStatusBar(state) {
+    statusBar.innerHTML = "Count is " + state.count + ".";
+  }
+  store.on('@changed', updateStatusBar);
+  updateStatusBar(store.get());
+
+  var d = div(
+    div(
+      button('Increment', { onclick: function(e) { store.dispatch('inc'); } }),
+      button('Decrement', { onclick: function(e) { store.dispatch('dec'); } })
+    ),
+    statusBar
+  );
+  document.getElementById('installation').appendChild(d);
+</script>
+
+</body>

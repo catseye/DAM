@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>DAM panel demo</title>
+</head>
+<body>
+
+<h1>DAM panel demo</h1>
+
+<p>DAM comes with a panel widget.  This widget provides a button by which it can
+be collapsed or expanded.</p>
+
+<div id="installation"></div>
+
+<script src="../src/dam.js"></script>
+<script src="../src/dam-widgets.js"></script>
+<script>
+  var div=DAM.maker("div"), p=DAM.maker("p"), span=DAM.maker("span"), button=DAM.maker("button");
+  var statusBar = span();
+  function updateStatus(msg) {
+    statusBar.innerHTML += "<p>clicked " + msg + "</p>";
+  }
+  document.getElementById('installation').appendChild(
+    div(
+      DAM.makePanel(
+        { title: "Knobs", isOpen: false },
+        button("Knob 1", { onclick: function(e) { updateStatus("Knob 1"); }}),
+        button("Knob 2", { onclick: function(e) { updateStatus("Knob 2"); }})
+      ),
+      DAM.makePanel(
+        { title: "Doohickeys", isOpen: true },
+        button("Doohickey 1", { onclick: function(e) { updateStatus("Doohickey 1"); }}),
+        button("Doohickey 2", { onclick: function(e) { updateStatus("Doohickey 2"); }})
+      ),
+      statusBar
+    )
+  );
+</script>
+
+</body>

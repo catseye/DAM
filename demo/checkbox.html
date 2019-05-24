@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>DAM checkbox demo</title>
+</head>
+<body>
+
+<h1>DAM checkbox demo</h1>
+
+<p>DAM comes with a checkbox widget.  This widget simply bundles together a checkbox input
+(on the left) with a label (on the right).</p>
+
+<div id="installation"></div>
+
+<script src="../src/dam.js"></script>
+<script src="../src/dam-widgets.js"></script>
+<script>
+  var div=DAM.maker('div'), span=DAM.maker('span');
+  var understood = false;
+  var great = false;
+  var statusBar = span();
+  function updateStatus() {
+    statusBar.innerHTML = (understood ? "understood " : "") + (great ? "great " : "");
+  }
+  var d = div(
+    div(
+      DAM.makeCheckbox({ onchange: function(b) { understood = b; updateStatus(); } }, "I understand"),
+      DAM.makeCheckbox({ onchange: function(b) { great = b; updateStatus(); } }, "It's great")
+    ),
+    statusBar
+  );
+  document.getElementById('installation').appendChild(d);
+</script>
+
+</body>

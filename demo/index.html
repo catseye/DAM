@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>DAM</title>
+  <style>
+#installation canvas {
+    border: 1px solid blue
+}
+  </style>
+</head>
+<body>
+
+<h1>DAM</h1>
+
+<div id="installation"></div>
+
+<script src="../src/dam.js"></script>
+<script src="../src/dam-widgets.js"></script>
+<script>
+  var div=DAM.maker("div"), p=DAM.maker("p"), span=DAM.maker("span"), button=DAM.maker("button"),
+      canvas=DAM.maker("canvas"), label=DAM.maker("label"), br=DAM.maker("br"), input=DAM.maker("input"),
+      textarea=DAM.maker("textarea");
+
+  var d = div(
+      p(
+          "Hello, ", span("world"), "."
+      ),
+      div(
+          button({ onclick: function(e) { alert(e); } }, "Alert!")
+      ),
+      div(
+          canvas({ width: 100, height: 100 })
+      ),
+      div(
+          label("Phone number:",
+              input({ type: "text", size: 12, value: "KL5-1214" })
+          ),
+          br(),
+          input({ type: "range", min: 0, max: 100, value: 75, onchange: function(e) { console.log(e.target.value); } }),
+          br(),
+          textarea({ rows: 10, cols: 80 }, "MAX\nQUEUE"),
+      )
+  );
+  document.getElementById('installation').appendChild(d);
+</script>
+
+</body>

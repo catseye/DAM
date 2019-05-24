@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>DAM select demo</title>
+</head>
+<body>
+
+<h1>DAM select demo</h1>
+
+<p>DAM comes with a select widget.  This widget provides a dropdown control where each
+selection is associated with some data.</p>
+
+<div id="installation"></div>
+
+<script src="../src/dam.js"></script>
+<script src="../src/dam-widgets.js"></script>
+<script>
+  var div=DAM.maker("div"), p=DAM.maker("p"), span=DAM.maker("span"), button=DAM.maker("button");
+  document.getElementById('installation').appendChild(
+    div(
+      DAM.makeSelect({
+        options: [
+          {
+            text: "First",
+            value: 1,
+          },
+          {
+            text: "Second",
+            value: 2,
+            selected: true
+          },
+          {
+            text: "Third",
+            value: 3,
+          }
+        ],
+        onchange: function(option) {
+          alert(option.value);
+        }
+      })
+    )
+  );
+</script>
+
+</body>
