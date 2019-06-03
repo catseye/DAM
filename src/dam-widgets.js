@@ -17,7 +17,7 @@ DAM.makeCheckbox = function(config) {
   for(var i = 0; i < args.length; ++i) {
     args[i] = arguments[i];
   }
-  args[0] = { 'for': checkboxId }
+  args[0] = { 'for': checkboxId, 'class': "dam-widget dam-checkbox" }
 
   return DAM.makeElem('span', [
     DAM.makeElem('input', [
@@ -67,10 +67,7 @@ DAM.makePanel = function(config) {
     }
   ]);
 
-  return DAM.makeElem("div", [
-    button,
-    innerContainer
-  ]);
+  return DAM.makeElem("div", [{ 'class': "dam-widget dam-panel" }, button, innerContainer]);
 };
 
 /*
@@ -92,7 +89,7 @@ DAM.makeSelect = function(config) {
   select.addEventListener('change', function(e) {
     onchange(options[select.selectedIndex]);
   });
-  return DAM.makeElem('label', [title, select]);
+  return DAM.makeElem('label', [{ 'class': "dam-widget dam-select" }, title, select]);
 };
 
 /*
@@ -163,5 +160,5 @@ DAM.makeRange = function(config) {
     }
   ]);
 
-  return DAM.makeElem('span', [DAM.makeElem('label', [title, slider]), textInput, decButton, incButton]);
+  return DAM.makeElem('span', [{ 'class': "dam-widget dam-range" }, DAM.makeElem('label', [title, slider]), textInput, decButton, incButton]);
 };

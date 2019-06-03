@@ -3,12 +3,24 @@
   <meta charset="utf-8">
   <title>DAM panel demo</title>
 </head>
+<style>
+.dam-panel {
+  border: 1px solid black;
+  margin-bottom: 0.5em;
+}
+.dam-panel > button {
+  letter-spacing: 3px;
+}
+.dam-panel > div {
+  padding: 0.5em;
+}
+</style>
 <body>
 
 <h1>DAM panel demo</h1>
 
 <p>DAM comes with a panel widget.  This widget provides a button by which it can
-be collapsed or expanded.</p>
+be collapsed or expanded.  The styling is just an example.</p>
 
 <div id="installation"></div>
 
@@ -28,7 +40,7 @@ be collapsed or expanded.</p>
         button("Knob 2", { onclick: function(e) { updateStatus("Knob 2"); }})
       ),
       DAM.makePanel(
-        { title: "Doohickeys", isOpen: true },
+        { title: "Doohickeys", isOpen: false },
         button("Doohickey 1", { onclick: function(e) { updateStatus("Doohickey 1"); }}),
         button("Doohickey 2", { onclick: function(e) { updateStatus("Doohickey 2"); }})
       ),

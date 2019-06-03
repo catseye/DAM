@@ -114,6 +114,13 @@ But `DAM.makeElem` can be called directly, and calling it directly allows
 more explicit access to its arguments.  Thus it is often called directly in
 widget makers.
 
+Some projects DAM is used in
+----------------------------
+
+*   [Cyclobots](https://catseye.tc/installation/Cyclobots)
+*   [Chzrxl](https://catseye.tc/installation/Chzrxl)
+*   [Maze Clouds](https://catseye.tc/installation/Maze_Clouds)
+
 Related work
 ------------
 
@@ -136,7 +143,5 @@ attributes from an object) are "obvious".  (But I saw no need for e.g.
 
 TODO
 ----
-
-Classes on widgets for styling (DAM_checkbox, DAM_panel, etc)
 
 Function to set the value of a DAM range control in an orderly fashion
