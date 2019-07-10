@@ -11,9 +11,10 @@ What is this
 **DAM** is a tiny library for creating bits of an HTML5 document.
 (I'd say "for creating UIs" but that may be overstating it a tad.)
 It's written in ES5 Javascript (so it can be used directly by most
-modern web browsers) and it's about 1K in size (uncompressed).
+modern web browsers) and it's about 1K in size (uncompressed).  It
+comes with a "standard widget library" that bloats it to about 6K.
 
-*NOTE: this is version 0.0: everything is subject to change*
+The current version of DAM is 0.1.
 
 Basic usage
 -----------
