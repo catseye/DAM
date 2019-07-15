@@ -1,6 +1,6 @@
 /* dam.js version 0.1-PRE. This file is in the public domain. */
 
-if (typeof window === 'undefined' || window.DAM === undefined) DAM = {};
+if (typeof window === 'undefined' || window.DAM === undefined) var DAM = {};
 
 DAM.makeElem = function(tag, args) {
   args = args || [];

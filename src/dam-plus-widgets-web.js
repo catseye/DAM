@@ -5,7 +5,7 @@
    It consists of dam.js followed by dam-widgets.js, both with only small
    hand modifications to make them load as-is in ES5. */
 
-if (typeof window === 'undefined' || window.DAM === undefined) DAM = {};
+if (typeof window === 'undefined' || window.DAM === undefined) var DAM = {};
 
 DAM.makeElem = function(tag, args) {
   args = args || [];
@@ -38,6 +38,8 @@ DAM.maker = function(tag) {
     return DAM.makeElem(tag, arguments);
   };
 };
+
+(function(DAM) { // ENTER-SCOPE
 
 /*
  * A labelled checkbox, where the checkbox appears to the left of the label.
@@ -199,5 +201,7 @@ DAM.makeRange = function(config) {
 
   return DAM.makeElem('span', [{ 'class': "dam-widget dam-range" }, DAM.makeElem('label', [title, slider]), textInput, decButton, incButton]);
 };
+
+})(DAM); // EXIT-SCOPE
 
 if (typeof module !== 'undefined') module.exports = DAM;

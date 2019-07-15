@@ -6,11 +6,13 @@
 
 import DAM from './dam.js'
 
+(function(DAM) { // ENTER-SCOPE
+
 /*
  * A labelled checkbox, where the checkbox appears to the left of the label.
  * Arguments after the first (config) argument will be applied to the label element.
  */
-var makeCheckbox = function(config) {
+DAM.makeCheckbox = function(config) {
   if (typeof DAM.makeCheckboxCounter === 'undefined') DAM.makeCheckboxCounter = 0;
   var checkboxId = 'cfzzzb_' + (DAM.makeCheckboxCounter++);
 
@@ -42,7 +44,7 @@ var makeCheckbox = function(config) {
  * A collapsible panel.
  * Arguments after the first (config) argument will be applied to the inner container div element.
  */
-var makePanel = function(config) {
+DAM.makePanel = function(config) {
   var isOpen = !!(config.isOpen);
   var title = config.title || "";
 
@@ -77,7 +79,7 @@ var makePanel = function(config) {
 /*
  * A select dropdown.
  */
-var makeSelect = function(config) {
+DAM.makeSelect = function(config) {
   var title = config.title || "";
   var options = config.options || [];
   var onchange = config.onchange || function(v) {};
@@ -99,7 +101,7 @@ var makeSelect = function(config) {
 /*
  * A range control.
  */
-var makeRange = function(config) {
+DAM.makeRange = function(config) {
   var title = config.title || "";
   var min_ = config['min'];
   var max_ = config['max'];
@@ -167,9 +169,6 @@ var makeRange = function(config) {
   return DAM.makeElem('span', [{ 'class': "dam-widget dam-range" }, DAM.makeElem('label', [title, slider]), textInput, decButton, incButton]);
 };
 
-if (typeof module !== 'undefined') module.exports = {
-    makeCheckbox: makeCheckbox,
-    makePanel: makePanel,
-    makeSelect: makeSelect,
-    makeRange: makeRange
-};
+})(DAM); // EXIT-SCOPE
+
+if (typeof module !== 'undefined') module.exports = DAM
