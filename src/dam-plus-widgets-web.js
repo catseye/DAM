@@ -1,7 +1,9 @@
-/* dam-plus-widgets-web.js version 0.1. This file is in the public domain. */
+/* dam-plus-widgets-web.js version 0.1-PRE. This file is in the public domain. */
 
-// This file is recommended if you just want to use DAM and its standard
-// widget library on an HTML page without bothering with JS build stuff.
+/* This file is recommended if you just want to use DAM and its standard
+   widget library on an HTML page without bothering with JS build stuff.
+   It consists of dam.js followed by dam-widgets.js, both with only small
+   hand modifications to make them load as-is in ES5. */
 
 if (typeof window === 'undefined' || window.DAM === undefined) DAM = {};
 
@@ -30,6 +32,7 @@ DAM.makeElem = function(tag, args) {
   }
   return elem;
 };
+
 DAM.maker = function(tag) {
   return function() {
     return DAM.makeElem(tag, arguments);
@@ -196,3 +199,5 @@ DAM.makeRange = function(config) {
 
   return DAM.makeElem('span', [{ 'class': "dam-widget dam-range" }, DAM.makeElem('label', [title, slider]), textInput, decButton, incButton]);
 };
+
+if (typeof module !== 'undefined') module.exports = DAM;

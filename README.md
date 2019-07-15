@@ -10,18 +10,19 @@ What is this
 
 **DAM** is a tiny library for creating bits of an HTML5 document.
 (I'd say "for creating UIs" but that may be overstating it a tad.)
-It's written in ES5 Javascript (so it can be used directly by most
-modern web browsers) and it's about 1K in size (uncompressed).  It
+It's written in ES5 Javascript, so it can be used directly by most
+modern web browsers, and it's about 1K in size (uncompressed).  It
 comes with a "standard widget library" that bloats it to about 6K.
 
-The current version of DAM is 0.1.
+The current version of DAM is 0.1-PRE.
 
 Basic usage
 -----------
 
-Basically you can use it like this:
+If you want to just drop DAM's basic functionality into a web page,
+you can use it like this:
 
-    <script src="dam.js"></script>
+    <script>var module = {};</script><script src="dam.js"></script><script>var DAM = module.exports;</script>
     <script>
       var div=DAM.maker('div'), p=DAM.maker('p'), span=DAM.maker('span'), button=DAM.maker('button');
       var d = div(
@@ -59,7 +60,7 @@ The names of DAM widget makers usually begin with `make`.
 
 A simple example based on the code above:
 
-    <script src="dam.js"></script>
+    <script>var module = {};</script><script src="dam.js"></script><script>var DAM = module.exports;</script>
     <script>
       var div=DAM.maker('div'), p=DAM.maker('p'), span=DAM.maker('span'), button=DAM.maker('button');
       function makeGreeting(config) {
@@ -102,6 +103,21 @@ the same, you can just treat these as examples or starting points for new widget
 *   [Panel widget](demo/panel.html)
 *   [Select widget](demo/select.html)
 *   [Range widget](demo/range.html)
+
+Unlike the other files, `dam-widgets.js` is written in ES6.  If you want to
+use it in an ES6 project, you can, for example,
+
+    import DAM from "./dam.js"
+    import { makeCheckbox, makePanel } from "./dam-widgets.js"
+
+However, you're not required to do this.  If you just want an ES5 file that
+you can drop onto a web page, DAM ships with `dam-plus-widgets-web.js` for
+this purpose.  Just:
+
+    <script src="dam-plus-widgets-web.js">
+
+and then you will have `DAM` as well as all the standard widget makers (nested
+under `DAM`) at your fingertips.
 
 ### Advanced widget creation
 

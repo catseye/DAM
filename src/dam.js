@@ -1,4 +1,4 @@
-/* dam.js version 0.0. This file is in the public domain. */
+/* dam.js version 0.1-PRE. This file is in the public domain. */
 
 if (typeof window === 'undefined' || window.DAM === undefined) DAM = {};
 
@@ -27,8 +27,11 @@ DAM.makeElem = function(tag, args) {
   }
   return elem;
 };
+
 DAM.maker = function(tag) {
   return function() {
     return DAM.makeElem(tag, arguments);
   };
 };
+
+if (typeof module !== 'undefined') module.exports = DAM;
