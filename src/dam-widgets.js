@@ -171,4 +171,4 @@ DAM.makeRange = function(config) {
 
 })(DAM); // EXIT-SCOPE
 
-if (typeof module !== 'undefined') module.exports = DAM
+if (typeof module !== 'undefined') module.exports = DAM;
