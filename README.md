@@ -9,9 +9,10 @@ What is this
 ------------
 
 **DAM** is a tiny library for creating bits of an HTML5 document.
-(I'd say "for creating UIs" but that may be overstating it a tad.)
-It's written in ES5 Javascript, so it can be used directly by most
-modern web browsers, and it's about 1K in size (uncompressed).  It
+(I'd say "for creating user interfaces" but that may be overstating
+it a tad.)  It's written in ES5 Javascript, so it can be used directly
+by most modern web browsers, or it can be transpiled to ES6 in a
+frontend build process.  It's about 1K in size (uncompressed), and it
 comes with a "standard widget library" that bloats it to about 6K.
 
 The current version of DAM is 0.1.
@@ -22,7 +23,7 @@ Basic usage
 If you want to just drop DAM's basic functionality into a web page,
 you can use it like this:
 
-    <script>var module = {};</script><script src="dam.js"></script><script>var DAM = module.exports;</script>
+    <script src="dam-plus-widgets-web.js"></script>
     <script>
       var div=DAM.maker('div'), p=DAM.maker('p'), span=DAM.maker('span'), button=DAM.maker('button');
       var d = div(
@@ -33,6 +34,10 @@ you can use it like this:
       );
       document.getElementById('container').appendChild(d);
     </script>
+
+(You can also import DAM as an ES6 module in a frontend build process.
+See the [demo/es6build/](demo/es6build/) directory of this repository
+for an example of this.)
 
 `DAM.maker` is a function that takes a tag string and returns a function that
 creates and returns a DOM Element with that tag.
@@ -60,7 +65,7 @@ The names of DAM widget makers usually begin with `make`.
 
 A simple example based on the code above:
 
-    <script>var module = {};</script><script src="dam.js"></script><script>var DAM = module.exports;</script>
+    <script src="dam-plus-widgets-web.js"></script>
     <script>
       var div=DAM.maker('div'), p=DAM.maker('p'), span=DAM.maker('span'), button=DAM.maker('button');
       function makeGreeting(config) {
@@ -114,7 +119,7 @@ However, you're not required to do this.  If you just want an ES5 file that
 you can drop onto a web page, DAM ships with `dam-plus-widgets-web.js` for
 this purpose.  Just:
 
-    <script src="dam-plus-widgets-web.js">
+    <script src="dam-plus-widgets-web.js"></script>
 
 and then you will have `DAM` as well as all the standard widget makers (nested
 under `DAM`) at your fingertips.
