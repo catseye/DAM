@@ -1,0 +1,19 @@
+{
+  "name": "zlerp",
+  "version": "0.1.0",
+  "description": "Demonstration of using DAM in an ES6 project transpiled to ES5 with Browserify and Babel.",
+  "scripts": {
+    "build:dev": "browserify src/index.js -t [ babelify --presets [ @babel/preset-env ] ] > demo/zlerp.js",
+    "build": "browserify src/index.js -t [ babelify --presets [ @babel/preset-env ] ] -g [ envify --NODE_ENV production ] -g uglifyify | terser --compress --mangle | uglifyjs > demo/zlerp.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babelify": "^10.0.0",
+    "browserify": "^16.3.0",
+    "envify": "^4.1.0",
+    "terser": "^4.1.2",
+    "uglify-js": "^3.6.0",
+    "uglifyify": "^5.0.1"
+  }
+}
