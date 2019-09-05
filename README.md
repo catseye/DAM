@@ -23,7 +23,7 @@ Basic usage
 If you want to just drop DAM's basic functionality into a web page,
 you can use it like this:
 
-    <script src="dam-plus-widgets-web.js"></script>
+    <script src="dam.js"></script>
     <script>
       var div=DAM.maker('div'), p=DAM.maker('p'), span=DAM.maker('span'), button=DAM.maker('button');
       var d = div(
@@ -65,7 +65,7 @@ The names of DAM widget makers usually begin with `make`.
 
 A simple example based on the code above:
 
-    <script src="dam-plus-widgets-web.js"></script>
+    <script src="dam.js"></script>
     <script>
       var div=DAM.maker('div'), p=DAM.maker('p'), span=DAM.maker('span'), button=DAM.maker('button');
       function makeGreeting(config) {
