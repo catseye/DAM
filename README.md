@@ -14,7 +14,7 @@ It's written in ES5 Javascript, so it can be used directly by most
 modern web browsers, and it's about 1K in size (uncompressed).  It
 comes with a "standard widget library" that bloats it to about 6K.
 
-The current version of DAM is 0.1-PRE.
+The current version of DAM is 0.1.
 
 Basic usage
 -----------

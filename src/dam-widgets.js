@@ -1,4 +1,4 @@
-/* dam-widgets.js version 0.1-PRE. This file is in the public domain. */
+/* dam-widgets.js version 0.1. This file is in the public domain. */
 
 /* if you want to use this file in an ES5 context, either remove the following line
    and ensure dam.js has already been loaded, or just use `dam-plus-widgets-web.js`

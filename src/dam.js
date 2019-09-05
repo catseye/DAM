@@ -1,4 +1,4 @@
-/* dam.js version 0.1-PRE. This file is in the public domain. */
+/* dam.js version 0.1. This file is in the public domain. */
 
 if (typeof window === 'undefined' || window.DAM === undefined) var DAM = {};
 

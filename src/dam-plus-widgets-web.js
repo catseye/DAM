@@ -1,4 +1,4 @@
-/* dam-plus-widgets-web.js version 0.1-PRE. This file is in the public domain. */
+/* dam-plus-widgets-web.js version 0.1. This file is in the public domain. */
 
 /* This file is recommended if you just want to use DAM and its standard
    widget library on an HTML page without bothering with JS build stuff.
