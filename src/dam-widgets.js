@@ -1,4 +1,4 @@
-/* dam-widgets.js version 0.1. This file is in the public domain. */
+/* dam-widgets.js version 0.2. This file is in the public domain. */
 
 /* if you want to use this file in an ES5 context, either remove the following line
    and ensure dam.js has already been loaded, or just use `dam-plus-widgets-web.js`
@@ -6,13 +6,11 @@
 
 import DAM from './dam.js'
 
-(function(DAM) { // ENTER-SCOPE
-
 /*
  * A labelled checkbox, where the checkbox appears to the left of the label.
  * Arguments after the first (config) argument will be applied to the label element.
  */
-DAM.makeCheckbox = function(config) {
+function makeCheckbox(config) {
   if (typeof DAM.makeCheckboxCounter === 'undefined') DAM.makeCheckboxCounter = 0;
   var checkboxId = 'cfzzzb_' + (DAM.makeCheckboxCounter++);
 
@@ -44,7 +42,7 @@ DAM.makeCheckbox = function(config) {
  * A collapsible panel.
  * Arguments after the first (config) argument will be applied to the inner container div element.
  */
-DAM.makePanel = function(config) {
+function makePanel(config) {
   var isOpen = !!(config.isOpen);
   var title = config.title || "";
 
@@ -79,7 +77,7 @@ DAM.makePanel = function(config) {
 /*
  * A select dropdown.
  */
-DAM.makeSelect = function(config) {
+function makeSelect(config) {
   var title = config.title || "";
   var options = config.options || [];
   var onchange = config.onchange || function(v) {};
@@ -101,7 +99,7 @@ DAM.makeSelect = function(config) {
 /*
  * A range control.
  */
-DAM.makeRange = function(config) {
+function makeRange(config) {
   var title = config.title || "";
   var min_ = config['min'];
   var max_ = config['max'];
@@ -169,6 +167,9 @@ DAM.makeRange = function(config) {
   return DAM.makeElem('span', [{ 'class': "dam-widget dam-range" }, DAM.makeElem('label', [title, slider]), textInput, decButton, incButton]);
 };
 
-})(DAM); // EXIT-SCOPE
-
-if (typeof module !== 'undefined') module.exports = DAM;
+if (typeof module !== 'undefined') module.exports = {
+    'makeCheckbox': makeCheckbox,
+    'makePanel': makePanel,
+    'makeSelect': makeSelect,
+    'makeRange': makeRange
+};

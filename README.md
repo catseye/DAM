@@ -11,17 +11,17 @@ What is this
 **DAM** is a tiny library for creating bits of an HTML5 document.
 (I'd say "for creating user interfaces" but that may be overstating
 it a tad.)  It's written in ES5 Javascript, so it can be used directly
-by most modern web browsers, or it can be transpiled to ES6 in a
+by most modern web browsers, or it can included as part of a modern
 frontend build process.  It's about 1K in size (uncompressed), and it
-comes with a "standard widget library" that bloats it to about 6K.
+ships along with a "standard widget library" that bloats it to about 6K.
 
-The current version of DAM is 0.1.
+The current version of DAM is 0.2.
 
 Basic usage
 -----------
 
-If you want to just drop DAM's basic functionality into a web page,
-you can use it like this:
+The simplest way to use DAM is to simply load it directly on a web page,
+which will work for most modern browsers, and to use it like so:
 
     <script src="dam.js"></script>
     <script>
@@ -34,10 +34,6 @@ you can use it like this:
       );
       document.getElementById('container').appendChild(d);
     </script>
-
-(You can also import DAM as an ES6 module in a frontend build process.
-See the [demo/es6build/](demo/es6build/) directory of this repository
-for an example of this.)
 
 `DAM.maker` is a function that takes a tag string and returns a function that
 creates and returns a DOM Element with that tag.
@@ -116,13 +112,19 @@ use it in an ES6 project, you can, for example,
     import { makeCheckbox, makePanel } from "./dam-widgets.js"
 
 However, you're not required to do this.  If you just want an ES5 file that
-you can drop onto a web page, DAM ships with `dam-plus-widgets-web.js` for
+you can load in a web page, DAM ships with `dist/dam-plus-widgets-web.js` for
 this purpose.  Just:
 
     <script src="dam-plus-widgets-web.js"></script>
 
 and then you will have `DAM` as well as all the standard widget makers (nested
 under `DAM`) at your fingertips.
+
+Note that, for convenience, `dist/dam-plus-widgets-web.js` is built from
+`src/dam-plus-widgets-web.js`, and minified for production, with some node.js
+tooling (browserify and so forth) defined in the `package.json` in this repo.
+But in a pinch, it could easily be constructed by hand from the files
+`src/dam.js` and `src/dam-widgets.js`.
 
 ### Advanced widget creation
 
@@ -142,6 +144,8 @@ Some projects DAM is used in
 *   [Cyclobots](https://catseye.tc/installation/Cyclobots)
 *   [Chzrxl](https://catseye.tc/installation/Chzrxl)
 *   [Maze Clouds](https://catseye.tc/installation/Maze_Clouds)
+*   [Erratic Turtle Graphics](https://catseye.tc/installation/Erratic_Turtle_Graphics)
+*   [Latcarf](https://catseye.tc/installation/Latcarf)
 
 Related work
 ------------

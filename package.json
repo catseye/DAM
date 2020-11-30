@@ -1,0 +1,22 @@
+{
+  "name": "catseye-DAM",
+  "version": "0.2.0",
+  "description": "You've tried the Document Object Model, now try the Document *Awesome* Model",
+  "repository": "https://github.com/catseye/DAM.git",
+  "license": "UNLICENSE",
+  "scripts": {
+    "build:dam": "mkdir -p dist && cp src/dam.js dist/dam.js",
+    "build:dam-plus-widgets-web": "mkdir -p dist && browserify src/dam-plus-widgets-web.js -t [ babelify --presets [ @babel/preset-env ] ] -g [ envify --NODE_ENV production ] -g uglifyify | terser --compress --mangle | uglifyjs > dist/dam-plus-widgets-web.js",
+    "build:all": "npm run build:dam && npm run build:dam-plus-widgets-web"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babelify": "^10.0.0",
+    "browserify": "^16.3.0",
+    "envify": "^4.1.0",
+    "terser": "^4.1.2",
+    "uglify-js": "^3.6.0",
+    "uglifyify": "^5.0.1"
+  }
+}
