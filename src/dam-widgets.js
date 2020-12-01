@@ -114,7 +114,7 @@ function makeRange(config) {
       type: "range", min: min_, max: max_, value: value,
       onchange: function(e) {
         var v = parseInt(slider.value, 10);
-        if (!isNaN(v)) {
+        if (!isNaN(v) && v >= min_ && v <= max_) {
           textInput.value = "" + v;
           onchange(v);
         }
@@ -164,7 +164,21 @@ function makeRange(config) {
     }
   ]);
 
-  return DAM.makeElem('span', [{ 'class': "dam-widget dam-range" }, DAM.makeElem('label', [title, slider]), textInput, decButton, incButton]);
+  var range = DAM.makeElem('span', [
+    { 'class': "dam-widget dam-range" },
+    DAM.makeElem('label', [title, slider]),
+    textInput,
+    decButton,
+    incButton
+  ]);
+  range.setValue = function(v) {
+    if (!isNaN(v) && v >= min_ && v <= max_) {
+      textInput.value = "" + v;
+      slider.value = "" + v;
+      onchange(v);
+    }
+  };
+  return range;
 };
 
 if (typeof module !== 'undefined') module.exports = {

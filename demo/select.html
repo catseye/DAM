@@ -15,6 +15,10 @@ selection is associated with some data.</p>
 <script src="../dist/dam-plus-widgets-web.js"></script>
 <script>
   var div=DAM.maker("div"), p=DAM.maker("p"), span=DAM.maker("span"), button=DAM.maker("button");
+  var statusBar = span();
+  function updateStatus(msg) {
+    statusBar.innerHTML += "<p>selected " + msg + "</p>";
+  }
   document.getElementById('installation').appendChild(
     div(
       DAM.makeSelect({
@@ -34,9 +38,10 @@ selection is associated with some data.</p>
           }
         ],
         onchange: function(option) {
-          alert(option.value);
+          updateStatus(option.value);
         }
-      })
+      }),
+      statusBar
     )
   );
 </script>

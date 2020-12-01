@@ -166,8 +166,3 @@ attributes from an object) are "obvious".  (But I saw no need for e.g.
 
 [hyperscript]: https://github.com/hyperhype/hyperscript
 [hyperscript-helpers]: https://github.com/ohanhi/hyperscript-helpers
-
-TODO
-----
-
-Function to set the value of a DAM range control in an orderly fashion
