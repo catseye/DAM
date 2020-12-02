@@ -6,8 +6,8 @@
   "license": "UNLICENSE",
   "scripts": {
     "build:dam": "mkdir -p dist && cp src/dam.js dist/dam-0.2.js",
-    "build:dam-plus-widgets-web": "mkdir -p dist && browserify src/dam-plus-widgets-web.js -t [ babelify --presets [ @babel/preset-env ] ] -g [ envify --NODE_ENV production ] -g uglifyify | terser --compress --mangle | uglifyjs > dist/dam-plus-widgets-web-0.2.js",
-    "build:all": "npm run build:dam && npm run build:dam-plus-widgets-web"
+    "build:dam-plus-widgets-min": "mkdir -p dist && browserify src/dam-plus-widgets.js -t [ babelify --presets [ @babel/preset-env ] ] -g [ envify --NODE_ENV production ] -g uglifyify | terser --compress --mangle | uglifyjs > dist/dam-plus-widgets-0.2.min.js",
+    "build:all": "npm run build:dam && npm run build:dam-plus-widgets-min"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",

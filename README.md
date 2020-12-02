@@ -12,8 +12,9 @@ What is this
 (I'd say "for creating user interfaces" but that may be overstating
 it a tad.)  It's written in ES5 Javascript, so it can be used directly
 by most modern web browsers, or it can included as part of a modern
-frontend build process.  It's about 1K in size (uncompressed), and it
-ships along with a "standard widget library" that bloats it to about 6K.
+frontend build process.  Even uncompressed it's only about 1K in size,
+and it ships with a minified version which includes a "standard widget
+library" that is still less than 4K.
 
 The current version of DAM is 0.2.
 
@@ -112,16 +113,16 @@ use it in an ES6 project, you can, for example,
     import { makeCheckbox, makePanel } from "./dam-widgets.js"
 
 However, you're not required to do this.  If you just want an ES5 file that
-you can load in a web page, DAM ships with `dist/dam-plus-widgets-web-0.2.js` for
-this purpose.  Just:
+you can load in a web page, DAM ships with `dist/dam-plus-widgets-0.2.min.js`
+for this purpose.  Just:
 
-    <script src="dist/dam-plus-widgets-web-0.2.js"></script>
+    <script src="dist/dam-plus-widgets-0.2.min.js"></script>
 
 and then you will have `DAM` as well as all the standard widget makers (nested
 under `DAM`) at your fingertips.
 
-Note that, for convenience, `dist/dam-plus-widgets-web-0.2.js` is built from
-`src/dam-plus-widgets-web.js`, and minified for production, with some node.js
+Note that, for convenience, `dist/dam-plus-widgets-0.2.min.js` is built from
+`src/dam-plus-widgets.js`, and minified for production, with some node.js
 tooling (browserify and so forth) defined in the `package.json` in this repo.
 But in a pinch, it could easily be constructed by hand from the files
 `src/dam.js` and `src/dam-widgets.js`.

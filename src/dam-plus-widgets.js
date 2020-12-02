@@ -1,4 +1,4 @@
-/* dam-plus-widgets-web.js version 0.2. This file is in the public domain. */
+/* dam-plus-widgets.js version 0.2. This file is in the public domain. */
 
 import DAM from './dam.js'
 import { makeCheckbox, makePanel, makeSelect, makeRange} from './dam-widgets.js'
