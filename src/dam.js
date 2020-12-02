@@ -1,4 +1,4 @@
-/* dam.js version 0.1. This file is in the public domain. */
+/* dam.js version 0.2. This file is in the public domain. */
 
 (function() {
   var DAM = {};

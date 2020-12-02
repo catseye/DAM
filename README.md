@@ -23,7 +23,7 @@ Basic usage
 The simplest way to use DAM is to simply load it directly on a web page,
 which will work for most modern browsers, and to use it like so:
 
-    <script src="dam.js"></script>
+    <script src="dist/dam-0.2.js"></script>
     <script>
       var div=DAM.maker('div'), p=DAM.maker('p'), span=DAM.maker('span'), button=DAM.maker('button');
       var d = div(
@@ -61,7 +61,7 @@ The names of DAM widget makers usually begin with `make`.
 
 A simple example based on the code above:
 
-    <script src="dam.js"></script>
+    <script src="dist/dam-0.2.js"></script>
     <script>
       var div=DAM.maker('div'), p=DAM.maker('p'), span=DAM.maker('span'), button=DAM.maker('button');
       function makeGreeting(config) {
@@ -112,15 +112,15 @@ use it in an ES6 project, you can, for example,
     import { makeCheckbox, makePanel } from "./dam-widgets.js"
 
 However, you're not required to do this.  If you just want an ES5 file that
-you can load in a web page, DAM ships with `dist/dam-plus-widgets-web.js` for
+you can load in a web page, DAM ships with `dist/dam-plus-widgets-web-0.2.js` for
 this purpose.  Just:
 
-    <script src="dam-plus-widgets-web.js"></script>
+    <script src="dist/dam-plus-widgets-web-0.2.js"></script>
 
 and then you will have `DAM` as well as all the standard widget makers (nested
 under `DAM`) at your fingertips.
 
-Note that, for convenience, `dist/dam-plus-widgets-web.js` is built from
+Note that, for convenience, `dist/dam-plus-widgets-web-0.2.js` is built from
 `src/dam-plus-widgets-web.js`, and minified for production, with some node.js
 tooling (browserify and so forth) defined in the `package.json` in this repo.
 But in a pinch, it could easily be constructed by hand from the files
