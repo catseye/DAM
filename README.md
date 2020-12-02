@@ -121,11 +121,15 @@ for this purpose.  Just:
 and then you will have `DAM` as well as all the standard widget makers (nested
 under `DAM`) at your fingertips.
 
-Note that, for convenience, `dist/dam-plus-widgets-0.2.min.js` is built from
-`src/dam-plus-widgets.js`, and minified for production, with some node.js
-tooling (browserify and so forth) defined in the `package.json` in this repo.
-But in a pinch, it could easily be constructed by hand from the files
-`src/dam.js` and `src/dam-widgets.js`.
+### Distribution files
+
+Note that the `package.json` supplied in this repository builds the files
+in `dist/` from the source files in `src/` using Browserify and Babel.
+It builds minified versions too.  But this is just a convenience.  The
+file `src/dam.js` is ES5 JavaScript and can be loaded directly in a web
+page and it will work fine in most modern browsers.  Similarly,
+`dam-plus-widgets-0.2.js` could, in a pinch, be constructed by hand from
+the files `src/dam.js` and `src/dam-widgets.js`.
 
 ### Advanced widget creation
 
