@@ -22,7 +22,7 @@ Basic usage
 -----------
 
 The simplest way to use DAM is to simply load it directly on a web page,
-which will work for most modern browsers, and to use it like so:
+and use it like so:
 
     <script src="dist/dam-0.2.js"></script>
     <script>
@@ -130,6 +130,10 @@ file `src/dam.js` is ES5 JavaScript and can be loaded directly in a web
 page and it will work fine in most modern browsers.  Similarly,
 `dam-plus-widgets-0.2.js` could, in a pinch, be constructed by hand from
 the files `src/dam.js` and `src/dam-widgets.js`.
+
+You can also import the DAM source files as ES6 modules in your own frontend
+build process.  See the [demo/es6build/](demo/es6build/) directory of this
+repository for an example of this.
 
 ### Advanced widget creation
 
