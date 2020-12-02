@@ -5,9 +5,11 @@
   "repository": "https://github.com/catseye/DAM.git",
   "license": "UNLICENSE",
   "scripts": {
-    "build:dam": "mkdir -p dist && cp src/dam.js dist/dam-0.2.js",
-    "build:dam-plus-widgets-min": "mkdir -p dist && browserify src/dam-plus-widgets.js -t [ babelify --presets [ @babel/preset-env ] ] -g [ envify --NODE_ENV production ] -g uglifyify | terser --compress --mangle | uglifyjs > dist/dam-plus-widgets-0.2.min.js",
-    "build:all": "npm run build:dam && npm run build:dam-plus-widgets-min"
+    "build:dam": "cp src/dam.js dist/dam-0.2.js",
+    "minify:dam": "cat dist/dam-0.2.js | terser --compress --mangle | uglifyjs > dist/dam-0.2.min.js",
+    "build:dam-plus-widgets": "browserify src/dam-plus-widgets.js -t [ babelify --presets [ @babel/preset-env ] ] -g [ envify --NODE_ENV production ] > dist/dam-plus-widgets-0.2.js",
+    "minify:dam-plus-widgets": "cat dist/dam-plus-widgets-0.2.js | terser --compress --mangle | uglifyjs > dist/dam-plus-widgets-0.2.min.js",
+    "build:all": "npm run build:dam && npm run minify:dam && npm run build:dam-plus-widgets && npm run minify:dam-plus-widgets"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
