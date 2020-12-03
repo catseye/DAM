@@ -12,20 +12,27 @@ any of which can be used to adjust a numeric value within a range.</p>
 
 <div id="installation"></div>
 
-<script src="../src/dam-plus-widgets-web.js"></script>
+<script src="../dist/dam-plus-widgets-web.js"></script>
 <script>
-  var div=DAM.maker("div"), p=DAM.maker("p"), span=DAM.maker("span"), button=DAM.maker("button");
+  var div=DAM.maker("div"),button=DAM.maker("button");
+  var range = DAM.makeRange({
+    title: "Fudge factor",
+    min: 0,
+    max: 100,
+    value: 50,
+    onchange: function(v) {
+      console.log(v);
+    }
+  })
   document.getElementById('installation').appendChild(
     div(
-      DAM.makeRange({
-        title: "Fudge factor",
-        min: 0,
-        max: 100,
-        value: 50,
-        onchange: function(v) {
-          console.log(v);
-        }
-      })
+      div(range),
+      div(
+        button(
+          "Programatically set value to 33",
+          { onclick: function() { range.setValue(33); } }
+        )
+      )
     )
   );
 </script>
